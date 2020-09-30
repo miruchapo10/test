@@ -29,7 +29,7 @@
         <script>
             $(function(){
                 $("#submit").click(function(e){
-                    $.post("http://api.openweathermap.org/data/2.5/weather?id=" + $("input[id='cityRadio']:checked").val() + "&appid=927705a82d41c32da532c6e87e873b23&lang=ja&units=metric",
+                    $.post("https://api.openweathermap.org/data/2.5/weather?id=" + $("input[id='cityRadio']:checked").val() + "&appid=927705a82d41c32da532c6e87e873b23&lang=ja&units=metric",
                     function(json){
                         $("#weather").html(json.weather[0].description);
                         $("#humidity").html(json.main.humidity);
