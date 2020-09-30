@@ -1,3 +1,27 @@
+.header{
+    background-color: rgba(0, 140, 255, 0.808);
+    color:white;
+    height: 70px;
+}
+
+.header-logo{
+    font-size: 20px;
+    padding: 21px 40px;
+}
+
+.header img{
+    width: 80%;
+    vertical-align: top;
+}
+
+.section-title{
+    border-bottom: 2px solid #dee7ec;
+    font-size: 28px;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    background-color: rgba(125, 230, 248, 0.226);
+}
+
 .bold{
     font-weight: bold;
     font-size: 1.5em;
