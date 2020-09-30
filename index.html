@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>お天気アプリ</title>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="weather_design.css">
+    </head>
+    <body>
+        <div class="header">お天気アプリ試作品</div>
+        <div class="main">
+            <h1>世界の天気</h1>
+            <div>
+                <h2>都市の選択</h2>
+                <input type="radio" id="cityRadio" name="cityRadio" value="2128295">札幌
+                <input type="radio" id="cityRadio" name="cityRadio" value="1850147">東京
+                <input type="radio" id="cityRadio" name="cityRadio" value="1859393">木更津
+                <button id="submit">送信</button>
+            </div>
+            <div class="weatherMain">
+                <h2>現在の天気</h2>
+                <div><span id="weather" class="bold"></span></div>
+            </div>
+            <div>温度<span id="temp" class="bold"></span>°C</div>
+            <div>湿度<span id="humidity" class="bold"></span>%</div>
+        </div>
+
+        <script>
+            $(function(){
+                $("#submit").click(function(e){
+                    $.post("http://api.openweathermap.org/data/2.5/weather?id=" + $("input[id='cityRadio']:checked").val() + "&appid=927705a82d41c32da532c6e87e873b23&lang=ja&units=metric",
+                    function(json){
+                        $("#weather").html(json.weather[0].description);
+                        $("#humidity").html(json.main.humidity);
+                        $("#temp").html(Math.round(json.main.temp));
+                    }
+                    );
+                });
+            });
+        </script>
+    </body>
+</html>
